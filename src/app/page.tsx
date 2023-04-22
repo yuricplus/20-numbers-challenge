@@ -19,11 +19,11 @@ export default function Home() {
   }
 
   const verifyNumber = (number: number, value: string | number) => {
-    if(actualNumber === 0) {
-      return alert('please generate a number before')
-    }
+    if(actualNumber === 0) return alert('please generate a number before')
+
     numbers.forEach((element) => {
       if(element.value === actualNumber) return alert("you lose!!!")
+
       if(element.number === number) {
         if(element.value === '') {
           element.value = actualNumber;
@@ -49,7 +49,7 @@ export default function Home() {
         </aside>
         <section className={styles.section}>
           <h2>{actualNumber === 0 ? 'next number' : actualNumber}</h2>
-          <button onClick={ () => generateNumbers()}>generate number &#x27A0;</button>
+          <button onClick={ () => generateNumbers()}>Generate</button>
         </section>
         <section className={styles.section}>
         </section>
