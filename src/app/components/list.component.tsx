@@ -10,11 +10,11 @@ export default function List(props: IProps){
         <ul className={style.ul}>
             {props.items.map((item) => (<li className={style.li} key={item.number}>
                 <label className={style.label}>{item.number}</label>
-                <input className={style.input} value={item.value} disabled></input>
+                <span className={style.span}> { item.value } </span>
                 {item.value === '' ? (
                     <button className={style.button} onClick={() => {
                         props.verifyNumber(item.number, item.value)
-                    }}>add</button>) : ''}
+                    }} aria-label="add number" title="add number">&#x2713;</button>) : ''}
             </li>))}
         </ul>
         )

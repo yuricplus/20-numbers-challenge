@@ -11,6 +11,7 @@ export default function Home() {
   const [actualNumber, setActualNumber] = React.useState(0);
 
   const generateNumbers = () => {
+    if(actualNumber !== 0) return alert("please, select a number")
     const max = 999;
     const min = 1;
     const number = Math.floor(Math.random() * (max - min))
@@ -22,6 +23,7 @@ export default function Home() {
       return alert('please generate a number before')
     }
     numbers.forEach((element) => {
+      if(element.value === actualNumber) return alert("you lose!!!")
       if(element.number === number) {
         if(element.value === '') {
           element.value = actualNumber;
@@ -33,8 +35,12 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.main}>
+    <>
+    <header className={styles.header}>
       <h1 className={styles.title}>20 numbers challenge</h1>
+
+    </header>
+    <main className={styles.main}>
       <div className={styles.content}>
         <aside className={styles.aside}>
           <div>
@@ -43,12 +49,12 @@ export default function Home() {
         </aside>
         <section className={styles.section}>
           <h2>{actualNumber === 0 ? 'next number' : actualNumber}</h2>
-          <button onClick={ () => generateNumbers()}>generate number</button>
+          <button onClick={ () => generateNumbers()}>generate number &#x27A0;</button>
         </section>
         <section className={styles.section}>
-          &quot;you can do anything in world&quot;
         </section>
       </div>
     </main>
+    </>
   )
 }
