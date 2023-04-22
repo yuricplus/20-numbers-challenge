@@ -37,17 +37,19 @@
 .label {
     padding: 5px;
     font-weight: 800;
+    height: 34px;
+    border-right: 1px solid #333;
     width: 30px;
     display: inline-block;
     color: #888;
 }
 
 .span {
-    padding: 1px;
-    margin: 0 5px;
+    padding: 0.5px;
+    margin: 0 2px;
     font-weight: 800;
     color: #888;
-    font-size: 14px;
+    font-size: 12px;
     background: transparent;
 }
 
