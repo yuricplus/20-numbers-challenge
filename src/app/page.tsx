@@ -9,6 +9,7 @@ import { NUMBER_LIST_DEFAULT } from './shared/models/numbers-list.model'
 export default function Home() {
   const [numbers, setNumbers] = React.useState(NUMBER_LIST_DEFAULT);
   const [actualNumber, setActualNumber] = React.useState(0);
+  const [score, setScore] = React.useState(0);
 
   const generateNumbers = () => {
     if(actualNumber !== 0) return alert("please, select a number")
@@ -32,6 +33,7 @@ export default function Home() {
     })
     setNumbers(numbers)
     setActualNumber(0)
+    setScore(score+1);
   }
 
   return (
@@ -51,8 +53,9 @@ export default function Home() {
           <h2>{actualNumber === 0 ? 'next number' : actualNumber}</h2>
           <button onClick={ () => generateNumbers()}>Generate</button>
         </section>
-        <section className={styles.section}>
-        </section>
+        <div className={styles.score}>
+          <h3>you got { score } right </h3>
+        </div>
       </div>
     </main>
     </>
