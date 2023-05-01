@@ -1,0 +1,57 @@
+.modal_container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background-color: #acacac87;
+    padding: 15px;
+}
+
+.modal_content {
+    background: #333;
+    border: 1px solid #acacac;
+    border-radius: 8px;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    max-width: 400px;
+    height: 300px;
+    margin: auto 15px;
+    padding: 15px;
+    text-align: center;
+}
+
+.modal_button_close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    background: transparent;
+    font-size: 28px;
+    border: none;
+}
+
+.modal_content_body {
+    position: relative;
+    top: 30px;
+}
+
+.modal_icon_error {
+    background-color: var(--alert-red);
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    border-radius: 50%;
+    font-weight: 800;
+    margin: 30px auto;
+}
+
+.modal_icon_success {
+    background-color: var(--scream-green);
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    border-radius: 50%;
+    margin: auto;
+}

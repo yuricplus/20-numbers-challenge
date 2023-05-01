@@ -1,0 +1,39 @@
+.success {
+    background-color: var(--scream-green);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    z-index: 30;
+}
+
+.toast .error, .success {
+    transition: all 0.2s;
+}
+
+.toast_hidden span{
+    visibility: hidden;
+}
+
+.toast_show .error, .success {
+    height: auto;
+}
+
+.toast_hidden .error, .success{
+    height: 0px;
+    padding: 0;
+    visibility: hidden;
+}
+
+.error {
+    background-color: var(--alert-red);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    z-index: 30; 
+}

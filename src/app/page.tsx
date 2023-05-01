@@ -4,12 +4,16 @@ import styles from './page.module.css';
 import React from 'react'
 
 import List from './components/list.component';
+import Modal from './components/modal/modal'
+import Toast from './components/toast/toast.component'
 import { NUMBER_LIST_DEFAULT } from './shared/models/numbers-list.model'
 
 export default function Home() {
   const [numbers, setNumbers] = React.useState(NUMBER_LIST_DEFAULT);
   const [actualNumber, setActualNumber] = React.useState(0);
   const [score, setScore] = React.useState(0);
+  const [showModal, setShowModal] = React.useState(false);
+  const [toast, setToast] = React.useState({type: 'error', show: false, text: 'please generate a number before'})
 
   const generateNumbers = () => {
     if(actualNumber !== 0) return alert("please, select a number")
@@ -20,10 +24,13 @@ export default function Home() {
   }
 
   const verifyNumber = (number: number, value: string | number) => {
-    if(actualNumber === 0) return alert('please generate a number before')
+    if(actualNumber === 0) {
+      setToast({type: 'error', show: true, text: 'please generate a number before'})
+      return initTimerToast();
+    }
 
     numbers.forEach((element) => {
-      if(element.value === actualNumber) return alert("you lose!!!")
+      if(element.value === actualNumber) setShowModal(true)
 
       if(element.number === number) {
         if(element.value === '') {
@@ -36,8 +43,16 @@ export default function Home() {
     setScore(score+1);
   }
 
+  const initTimerToast = () => {
+    return setTimeout(() => {
+      return setToast({type: 'error', show: false, text: 'please generate a number before'})
+    }, 3000)
+  }
+
   return (
     <>
+    <Modal show={showModal}/>
+    <Toast show={toast.show} type={toast.type} text={toast.text}/>
     <header className={styles.header}>
       <h1 className={styles.title}>20 numbers challenge</h1>
 
