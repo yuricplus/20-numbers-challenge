@@ -16,7 +16,10 @@ export default function Home() {
   const [toast, setToast] = React.useState({type: 'error', show: false, text: 'please generate a number before'})
 
   const generateNumbers = () => {
-    if(actualNumber !== 0) return alert("please, select a number")
+    if(actualNumber !== 0) {
+      setToast({type: 'error', show: true, text: 'please, select a number!'})
+      return initTimerToast();
+    }
     const max = 999;
     const min = 1;
     const number = Math.floor(Math.random() * (max - min))
