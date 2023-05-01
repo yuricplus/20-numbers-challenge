@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <>
-    <Modal show={showModal}/>
+    <Modal show={showModal} type="error" text='you lost'/>
     <Toast show={toast.show} type={toast.type} text={toast.text}/>
     <header className={styles.header}>
       <h1 className={styles.title}>20 numbers challenge</h1>
